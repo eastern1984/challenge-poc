@@ -1,4 +1,4 @@
-# index
+# Index
 
  - [Frontend - Angular](#frontend)
  - [Backend - Feathers](#backend)
