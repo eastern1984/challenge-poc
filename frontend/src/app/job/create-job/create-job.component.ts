@@ -16,10 +16,8 @@ export class CreateJobComponent implements OnInit {
   constructor(private jobService: ExampleService, private route: ActivatedRoute, private router: Router) {
     this.id = this.route.snapshot.paramMap.get('id');
     this.job = new Job();
-    console.log(1111, this.id);
     if (this.id !== null) {
       this.jobService.getJob(this.id).then((result) => {
-        console.log(2222, result);
         this.job.id = result.id;
         this.job.title = result.title;
         this.job.description = result.description;
