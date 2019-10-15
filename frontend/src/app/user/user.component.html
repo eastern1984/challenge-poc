@@ -1,0 +1,18 @@
+<a mat-raised-button color="primary" routerLink="/create-user">Create user</a>
+
+<mat-card *ngFor="let item of users" class="card">
+    <mat-card-header>
+        <mat-card-title>{{item.name}}</mat-card-title>
+        <mat-card-subtitle>{{item.email}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <p>
+            Rate: {{item.hourlyRate}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button (click)="updateUser(item.id)" mat-raised-button>Update</button>
+        <button (click)="deleteUser(item.id)" mat-raised-button color="warn">Delete</button>
+    </mat-card-actions>
+</mat-card>

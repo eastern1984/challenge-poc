@@ -1,0 +1,21 @@
+<section class="buttons" >
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" enctype="multipart/form-data">
+          
+            <input hidden type="text" ngModel name="id" [ngModel]="id">
+    
+            <mat-form-field>
+                <input type="text" matInput placeholder="Title" ngModel name="title" required [ngModel]="(job) ? job.title : ''">
+            </mat-form-field>
+    
+            <mat-form-field>
+                <textarea  type="text" matInput placeholder="Description" ngModel name="description" required [ngModel]="(job) ? job.description : ''"></textarea>
+            </mat-form-field>
+    
+            <div>
+                <button type="submit" mat-raised-button color="accent" [disabled]="f.invalid">{{ (id) ? 'Update' : 'Create' }}</button>
+            </div>
+    
+        </form>
+     
+    </section>
+    

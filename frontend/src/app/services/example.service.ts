@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { FeathersService } from '../shared/feathers.service';
+import { Job } from '../models/job.model';
 
 
 interface JobModel {
@@ -13,9 +14,33 @@ interface JobModel {
 })
 export class ExampleService {
 
+  private jobService;
+
   constructor(
     private feathers: FeathersService
-  ) {}
+  ) {
+    this.jobService = this.feathers.createService<JobModel>('job');
+  }
+
+  public createJob(job: Job) {
+    return this.jobService.create(job);
+  }
+
+  public getJobs() {
+    return this.jobService.find();
+  }
+
+  public getJob(id) {
+      return this.jobService.get(id);
+  }
+
+  public updateJob(job: Job) {
+    return this.jobService.patch(job.id, job);
+  }
+
+  public deteteJob(id) {
+    return this.jobService.remove(id);
+  }
 
   async showExample() {
   const jobService = this.feathers.createService<JobModel>('job');

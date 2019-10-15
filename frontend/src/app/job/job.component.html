@@ -1,0 +1,17 @@
+<a mat-raised-button color="primary" routerLink="/create-job">Create job</a>
+
+<mat-card *ngFor="let item of jobs" class="card">
+    <mat-card-header>
+        <mat-card-title>{{item.title}}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <p>
+            {{item.description}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button (click)="updateJob(item.id)" mat-raised-button>Update</button>
+        <button (click)="deleteJob(item.id)" mat-raised-button color="warn">Delete</button>
+    </mat-card-actions>
+</mat-card>
